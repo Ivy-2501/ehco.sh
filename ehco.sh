@@ -51,7 +51,6 @@ InitialEhco() {
     	wget -O /usr/bin/ehco $url &> /dev/null
     	if [ $? -ne 0 ]; then
     		echo -e "${blue_prefix}[Info]${plain_prefix} wget包缺失，开始安装wget"
-    		InstallWget
     		wget -O /usr/bin/ehco $url &> /dev/null
     	fi
     	echo -e "${blue_prefix}[Done]${plain_prefix} 下载完成"
