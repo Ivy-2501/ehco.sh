@@ -49,7 +49,6 @@ InitialEhco() {
     	url="https://raw.githubusercontent.com/Ehco1996/ehco/releases/download/v${ehco_version}/ehco_${ehco_version}_linux_$1"
     	echo -e "${blue_prefix}[Info]${plain_prefix} 开始下载ehco文件..."
     	wget -O /usr/bin/ehco $url &> /dev/null
-    	fi
     	echo -e "${blue_prefix}[Done]${plain_prefix} 下载完成"
     	chmod +x /usr/bin/ehco
     	InitialEhcoConfigure
