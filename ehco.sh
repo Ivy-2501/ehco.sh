@@ -17,8 +17,7 @@ export PATH
 
 [[ $EUID -ne 0 ]] && echo -e "[Error]请以root用户或者sudo提权运行本脚本！" && exit 1
 
-ehco_version="1.1.0"
-ehco_conf_dir="/usr/local/ehco/"
+ehco_conf_dir="/usr/local/ehco"
 CPUFrame=$(arch)
 SysID=$(cat /etc/os-release | grep ^ID=)
 
@@ -48,7 +47,7 @@ InitialEhco() {
     if [ ! -e "/usr/bin/ehco" ]; then
     	url="https://github.com/Ehco1996/ehco/releases/download/v1.1.0/ehco_1.1.0_linux_amd64"
     	echo -e "${blue_prefix}[Info]${plain_prefix} 开始下载ehco文件..."
-    	wget -O /usr/bin/ehco $url &> /dev/null
+    	wget -qO /usr/bin/ehco $url &> /dev/null
     	echo -e "${blue_prefix}[Done]${plain_prefix} 下载完成"
     	chmod +x /usr/bin/ehco
     	InitialEhcoConfigure
@@ -63,7 +62,7 @@ InitialEhcoConfigure() {
 		echo -e "
 {	
 	\"web_port\": 9000,
-	\"web_token\": \"leo123leo\",
+	\"web_token\": \"sxr666\",
 	\"enable_ping\": false,
 	\"relay_configs\":[
 	]
@@ -77,13 +76,13 @@ InitialEhcoConfigure() {
 AddSystemService() {
 	case ${SysID} in
 	*centos*)
-		systemctlDIR="/usr/lib/systemd/system/"
+		systemctlDIR="/usr/lib/systemd/system"
 		;;
 	*debian*)
-		systemctlDIR="/etc/systemd/system/"
+		systemctlDIR="/etc/systemd/system"
 		;;
 	*ubuntu*)
-		systemctlDIR="/etc/systemd/system/"
+		systemctlDIR="/etc/systemd/system"
 		;;
 	*)
 		echo -e "[Error]未知系统，请自行添加Systemctl"
