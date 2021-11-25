@@ -45,7 +45,7 @@ InitialEhco() {
 	    mkdir $ehco_conf_dir
     fi
     if [ ! -e "/usr/bin/ehco" ]; then
-    	url="https://github.com/Ehco1996/ehco/releases/download/v1.1.0/ehco_1.1.0_linux_amd64"
+    	url="https://ghproxy.com/https://github.com/Ehco1996/ehco/releases/download/v1.1.0/ehco_1.1.0_linux_amd64"
     	echo -e "${blue_prefix}[Info]${plain_prefix} 开始下载ehco文件..."
     	wget -qO /usr/bin/ehco $url &> /dev/null
     	echo -e "${blue_prefix}[Done]${plain_prefix} 下载完成"
